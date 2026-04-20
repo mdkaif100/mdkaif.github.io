@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>MD. Kaif | Humanities Educator</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#21262d;
+  --border:#30363d;--text:#e6edf3;--muted:#8b949e;
+  --accent:#58a6ff;--accent2:#3fb950;--gold:#d29922;
+  --purple:#bc8cff;--coral:#ff7b72;
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:14px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-avatar-sm{width:32px;height:32px;border-radius:50%;overflow:hidden;border:2px solid var(--border)}
+.nav-avatar-sm img{width:100%;height:100%;object-fit:cover}
+.nav-name{font-weight:500;font-size:15px}
+.nav-links{display:flex;gap:20px}
+.nav-links a{color:var(--muted);font-size:13px;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.hero{padding:60px 24px 40px;max-width:900px;margin:0 auto;display:flex;gap:40px;align-items:flex-start}
+.hero-avatar{width:120px;height:120px;border-radius:50%;overflow:hidden;border:3px solid var(--border);flex-shrink:0}
+.hero-avatar img{width:100%;height:100%;object-fit:cover;object-position:top}
+.hero-info{flex:1}
+.hero-name{font-size:28px;font-weight:600;margin-bottom:4px}
+.hero-handle{font-size:18px;color:var(--muted);font-weight:300;margin-bottom:12px}
+.hero-bio{color:var(--muted);font-size:14px;max-width:520px;line-height:1.7;margin-bottom:16px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.tag{font-size:12px;padding:3px 10px;border-radius:20px;border:1px solid var(--border);color:var(--muted);display:flex;align-items:center;gap:5px}
+.tag.blue{border-color:#58a6ff44;color:var(--accent);background:#58a6ff11}
+.tag.green{border-color:#3fb95044;color:var(--accent2);background:#3fb95011}
+.tag.gold{border-color:#d2992244;color:var(--gold);background:#d2992211}
+.hero-btns{display:flex;gap:10px}
+.btn{padding:6px 14px;border-radius:6px;font-size:13px;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-primary{background:var(--accent2);color:#0d1117;border:none;font-weight:500}
+.btn-primary:hover{background:#4fc862}
+.btn-sec{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-sec:hover{background:var(--bg3)}
+.main{max-width:900px;margin:0 auto;padding:24px;display:grid;grid-template-columns:260px 1fr;gap:24px;align-items:start}
+.side-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:16px}
+.side-title{font-size:13px;font-weight:600;margin-bottom:12px;color:var(--text)}
+.side-stat{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border)}
+.side-stat:last-child{border-bottom:none}
+.side-stat-label{font-size:12px;color:var(--muted)}
+.side-stat-val{font-size:13px;font-weight:500;color:var(--accent)}
+.skill-bar{margin-bottom:10px}
+.skill-name{font-size:12px;color:var(--muted);margin-bottom:4px;display:flex;justify-content:space-between}
+.skill-track{height:4px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.skill-fill{height:100%;border-radius:4px;background:var(--accent)}
+.skill-fill.green{background:var(--accent2)}
+.skill-fill.gold{background:var(--gold)}
+.skill-fill.purple{background:var(--purple)}
+.section-hd{font-size:14px;font-weight:600;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.section-hd .ico{font-size:16px}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:14px}
+.card:hover{border-color:#58a6ff55;transition:border-color .2s}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.stat-box{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px;text-align:center}
+.stat-num{font-size:22px;font-weight:600;color:var(--accent);display:block}
+.stat-num.green{color:var(--accent2)}
+.stat-num.gold{color:var(--gold)}
+.stat-num.purple{color:var(--purple)}
+.stat-num.coral{color:var(--coral)}
+.stat-desc{font-size:11px;color:var(--muted);margin-top:2px}
+.exp-item{display:flex;gap:12px;margin-bottom:16px}
+.exp-icon{width:36px;height:36px;border-radius:6px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.exp-title{font-size:14px;font-weight:500}
+.exp-org{font-size:12px;color:var(--accent);margin:1px 0}
+.exp-date{font-size:11px;color:var(--muted)}
+.exp-desc{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.6}
+.ach-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ach-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px}
+.ach-card.featured{border-color:var(--gold);background:#d2992208}
+.ach-medal{font-size:20px;margin-bottom:6px}
+.ach-title{font-size:13px;font-weight:500;line-height:1.4}
+.ach-sub{font-size:11px;color:var(--muted);margin-top:3px}
+.pinned-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+.pin-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px}
+.pin-card:hover{border-color:#58a6ff55;transition:border-color .2s}
+.pin-name{font-size:13px;font-weight:600;color:var(--accent);margin-bottom:4px}
+.pin-desc{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:10px}
+.pin-meta{display:flex;gap:12px;align-items:center}
+.pin-lang{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted)}
+.lang-dot{width:10px;height:10px;border-radius:50%}
+.pin-stars{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:3px}
+.contact-list{display:flex;flex-direction:column;gap:8px}
+.contact-row{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
+.contact-row span{color:var(--text)}
+footer{text-align:center;padding:30px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);margin-top:40px}
+@media(max-width:700px){
+  .main{grid-template-columns:1fr}
+  .hero{flex-direction:column;gap:20px}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .ach-grid,.pinned-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-avatar-sm"><img id="nav-img" src="" alt="Kaif"/></div>
+    <span class="nav-name">md-kaif</span>
+  </div>
+  <div class="nav-links">
+    <a href="#courses">Courses</a>
+    <a href="#experience">Experience</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-avatar"><img id="hero-img" src="" alt="MD. Kaif"/></div>
+  <div class="hero-info">
+    <div class="hero-name">MD. Kaif</div>
+    <div class="hero-handle">@md-kaif</div>
+    <div class="hero-bio">Humanities Subject Matter Expert at 10 Minute School. Management student at Jagannath University. Passionate about education, entrepreneurship & personal finance. Striving to be in the top 1%.</div>
+    <div class="hero-tags">
+      <span class="tag blue">📚 Humanities SME</span>
+      <span class="tag green">🏫 10 Minute School</span>
+      <span class="tag gold">🏛 Jagannath University</span>
+      <span class="tag blue">📍 Dhaka, Bangladesh</span>
+    </div>
+    <div class="hero-btns">
+      <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">✉ Contact Me</button>
+      <button class="btn btn-sec" onclick="document.getElementById('courses').scrollIntoView({behavior:'smooth'})">View Courses →</button>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <aside class="sidebar">
+    <div class="side-card">
+      <div class="side-title">📊 Teaching Stats</div>
+      <div class="side-stat"><span class="side-stat-label">Total Classes</span><span class="side-stat-val">218</span></div>
+      <div class="side-stat"><span class="side-stat-label">Total Teaching Time</span><span class="side-stat-val">218 Hours</span></div>
+      <div class="side-stat"><span class="side-stat-label">Avg Attendance</span><span class="side-stat-val">513</span></div>
+      <div class="side-stat"><span class="side-stat-label">Peak Attendance</span><span class="side-stat-val">2,052</span></div>
+      <div class="side-stat"><span class="side-stat-label">Avg Class Duration</span><span class="side-stat-val">~1 Hour</span></div>
+      <div class="side-stat"><span class="side-stat-label">Unique Courses</span><span class="side-stat-val">12</span></div>
+      <div class="side-stat"><span class="side-stat-label">Rating</span><span class="side-stat-val">⭐ 4.81 / 5</span></div>
+    </div>
+
+    <div class="side-card">
+      <div class="side-title">🌐 Languages</div>
+      <div class="side-stat"><span class="side-stat-label">Bengali</span><span class="side-stat-val" style="color:var(--accent2)">Native</span></div>
+      <div class="side-stat"><span class="side-stat-label">English</span><span class="side-stat-val" style="color:var(--accent2)">Fluent</span></div>
+      <div class="side-stat"><span class="side-stat-label">Hindi</span><span class="side-stat-val" style="color:var(--muted)">Basic</span></div>
+    </div>
+
+    <div class="side-card">
+      <div class="side-title">🎓 Education</div>
+      <div style="margin-bottom:10px">
+        <div style="font-size:13px;font-weight:500">Jagannath University</div>
+        <div style="font-size:11px;color:var(--accent)">Dept. of Management Studies</div>
+        <div style="font-size:11px;color:var(--muted)">2022 – Present</div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:500">Notre Dame College, Dhaka</div>
+        <div style="font-size:11px;color:var(--accent)">Higher Secondary Certificate</div>
+        <div style="font-size:11px;color:var(--muted)">2019 – 2021</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <div class="stats-row">
+      <div class="stat-box"><span class="stat-num">218</span><div class="stat-desc">Total classes</div></div>
+      <div class="stat-box"><span class="stat-num coral">218 hrs</span><div class="stat-desc">Total teaching time</div></div>
+      <div class="stat-box"><span class="stat-num green">4.81</span><div class="stat-desc">Student rating / 5</div></div>
+      <div class="stat-box"><span class="stat-num gold">2,052</span><div class="stat-desc">Peak attendance</div></div>
+    </div>
+
+    <div id="courses">
+      <div class="section-hd"><span class="ico">📌</span> Pinned Courses</div>
+      <div class="pinned-grid">
+        <div class="pin-card">
+          <div class="pin-name">📗 HSC Economics</div>
+          <div class="pin-desc">Comprehensive HSC economics — macro & micro concepts for board exam success.</div>
+          <div class="pin-meta"><span class="pin-lang"><span class="lang-dot" style="background:#f1e05a"></span>Humanities</span></div>
+        </div>
+        <div class="pin-card">
+          <div class="pin-name">📘 Management Studies</div>
+          <div class="pin-desc">Core management principles for university admission & HSC — strategy, planning, and organizational behavior.</div>
+          <div class="pin-meta"><span class="pin-lang"><span class="lang-dot" style="background:#3572A5"></span>Management</span></div>
+        </div>
+        <div class="pin-card">
+          <div class="pin-name">📙 SSC Economics</div>
+          <div class="pin-desc">Board-pattern based SSC economics prep covering all chapters with prediction-based revision.</div>
+          <div class="pin-meta"><span class="pin-lang"><span class="lang-dot" style="background:#e34c26"></span>Humanities</span></div>
+        </div>
+        <div class="pin-card">
+          <div class="pin-name">📕 Management (HSC)</div>
+          <div class="pin-desc">ব্যবসায় সংগঠন ও ব্যবস্থাপনা — HSC management made simple and exam-ready.</div>
+          <div class="pin-meta"><span class="pin-lang"><span class="lang-dot" style="background:#bc8cff"></span>Management</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="experience">
+      <div class="section-hd"><span class="ico">💼</span> Experience</div>
+      <div class="card">
+        <div class="exp-item">
+          <div class="exp-icon">🏫</div>
+          <div class="exp-body">
+            <div class="exp-title">Humanities Subject Matter Expert</div>
+            <div class="exp-org">10 Minute School</div>
+            <div class="exp-date">2023 – Present</div>
+            <div class="exp-desc">Delivered 218 live classes totalling 218 hours across Facebook and App platforms, averaging 513 students per session. Taught 12 unique humanities & management courses with an average rating of 4.81/5. Contributed 4.12% of platform's total classes.</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-icon">🎓</div>
+          <div class="exp-body">
+            <div class="exp-title">Management Instructor</div>
+            <div class="exp-org">Luminous University Admission Coaching</div>
+            <div class="exp-date">2022 – Present</div>
+            <div class="exp-desc">Instructed university admission candidates in management subjects.</div>
+          </div>
+        </div>
+        <div class="exp-item" style="margin-bottom:0">
+          <div class="exp-icon">📈</div>
+          <div class="exp-body">
+            <div class="exp-title">Business Development Intern</div>
+            <div class="exp-org">Chawdhary Aktar and Associates</div>
+            <div class="exp-date">2022</div>
+            <div class="exp-desc">Gained hands-on experience in business development and corporate dealings.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="achievements">
+      <div class="section-hd"><span class="ico">🏆</span> Achievements</div>
+      <div class="ach-grid">
+        <div class="ach-card featured">
+          <div class="ach-medal">🏛</div>
+          <div class="ach-title">Harvard University Leadership Program</div>
+          <div class="ach-sub">Selected from 6,000+ applicants worldwide</div>
+        </div>
+        <div class="ach-card featured">
+          <div class="ach-medal">🥇</div>
+          <div class="ach-title">Champion — Advoluation 2.0</div>
+          <div class="ach-sub">OVC-based competition · 78 competing teams</div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-medal">🎤</div>
+          <div class="ach-title">Winner — Creative Maniac</div>
+          <div class="ach-sub">Public speaking competition · 2023</div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-medal">🌟</div>
+          <div class="ach-title">Student of the Year</div>
+          <div class="ach-sub">Notre Dame College, Dhaka · 2019–2021</div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-medal">🥈</div>
+          <div class="ach-title">Hult Prize on Campus</div>
+          <div class="ach-sub">3-year run · 2× 2nd runner-up, 1× 1st runner-up · 68 teams</div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-medal">🥉</div>
+          <div class="ach-title">2nd Runner-Up — Puppet Master 2.0</div>
+          <div class="ach-sub">Business case competition</div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-medal">💰</div>
+          <div class="ach-title">17 Lakh BDT Sponsorship</div>
+          <div class="ach-sub">Managed 8 corporate sponsorship deals</div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-medal">🎪</div>
+          <div class="ach-title">4 Major Events Organized</div>
+          <div class="ach-sub">Notre Dame Business Club · 600+ participants</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="contact" style="margin-top:24px">
+      <div class="section-hd"><span class="ico">📬</span> Get in touch</div>
+      <div class="card">
+        <div class="contact-list">
+          <div class="contact-row">✉️ <span>mdkaif5332@gmail.com</span></div>
+          <div class="contact-row">🏛 <span>Jagannath University, Dept. of Management Studies</span></div>
+          <div class="contact-row">📍 <span>Dhaka, Bangladesh</span></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <p>MD. Kaif · Humanities Educator · 10 Minute School · Dhaka, Bangladesh</p>
+  <p style="margin-top:6px">Built with passion for education 📚</p>
+</footer>
+
+<script>
+(function(){
+  const img = document.getElementById('hero-img');
+  const navImg = document.getElementById('nav-img');
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'image/*';
+  input.style.display = 'none';
+  document.body.appendChild(input);
+
+  function setPhoto(src){
+    img.src = src;
+    navImg.src = src;
+    img.parentElement.style.background = 'none';
+  }
+
+  const placeholder = document.createElement('div');
+  placeholder.style.cssText = 'position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;border-radius:50%;background:linear-gradient(135deg,#58a6ff,#bc8cff)';
+  placeholder.innerHTML = '<span style="font-size:36px;font-weight:600;color:#fff">MK</span><span style="font-size:9px;color:rgba(255,255,255,.7);margin-top:4px">tap to upload</span>';
+  img.parentElement.style.position = 'relative';
+  img.parentElement.appendChild(placeholder);
+
+  placeholder.onclick = () => input.click();
+  img.onclick = () => input.click();
+
+  input.onchange = e => {
+    const file = e.target.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      setPhoto(ev.target.result);
+      placeholder.style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const preloaded = "PHOTO_HERE";
+  if(preloaded !== "PHOTO_HERE") setPhoto(preloaded);
+})();
+</script>
+</body>
+</html>
